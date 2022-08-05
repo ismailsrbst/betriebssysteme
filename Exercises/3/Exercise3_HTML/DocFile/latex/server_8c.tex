@@ -1,0 +1,104 @@
+\hypertarget{server_8c}{}\doxysection{server.\+c File Reference}
+\label{server_8c}\index{server.c@{server.c}}
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{server_8c_a2d122e5bc9a6e3d768e0494ddd3e4ce5}{error\+\_\+exit}} (char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em exits incase of an error. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{server_8c_a8a6509edc999547588fff88aaa1749aa}{handle\+\_\+signal}} (int signal)
+\begin{DoxyCompactList}\small\item\em handle signal \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{server_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em main method of programm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{server_8c_a42ec34a2bd4a60795f746672bc7a00c9}{myprog}}
+\begin{DoxyCompactList}\small\item\em global variable\+: myprog program name. \end{DoxyCompactList}\item 
+volatile sig\+\_\+atomic\+\_\+t \mbox{\hyperlink{server_8c_a0b6d3439424a03ac9ad9ea40abb12021}{quit}} = 0
+\begin{DoxyCompactList}\small\item\em global variable\+: quit for signal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{server_8c_a2d122e5bc9a6e3d768e0494ddd3e4ce5}\label{server_8c_a2d122e5bc9a6e3d768e0494ddd3e4ce5}} 
+\index{server.c@{server.c}!error\_exit@{error\_exit}}
+\index{error\_exit@{error\_exit}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{error\_exit()}{error\_exit()}}
+{\footnotesize\ttfamily static void error\+\_\+exit (\begin{DoxyParamCaption}\item[{char $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+exits incase of an error. 
+
+exits and prints error message if any error accured. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & char pointer that contains error message. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{server_8c_a8a6509edc999547588fff88aaa1749aa}\label{server_8c_a8a6509edc999547588fff88aaa1749aa}} 
+\index{server.c@{server.c}!handle\_signal@{handle\_signal}}
+\index{handle\_signal@{handle\_signal}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{handle\_signal()}{handle\_signal()}}
+{\footnotesize\ttfamily static void handle\+\_\+signal (\begin{DoxyParamCaption}\item[{int}]{signal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+handle signal 
+
+makes variable quit 1. 
+\begin{DoxyParams}{Parameters}
+{\em signal} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{server_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{server_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{server.c@{server.c}!main@{main}}
+\index{main@{main}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+main method of programm 
+
+The server waits for connections from clients and transmits the requested files. 
+\begin{DoxyParams}{Parameters}
+{\em argc} & argc count of arguments. \\
+\hline
+{\em argv} & array contains argument values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns error if programm fails, otherwise returns 0. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{server_8c_a42ec34a2bd4a60795f746672bc7a00c9}\label{server_8c_a42ec34a2bd4a60795f746672bc7a00c9}} 
+\index{server.c@{server.c}!myprog@{myprog}}
+\index{myprog@{myprog}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{myprog}{myprog}}
+{\footnotesize\ttfamily char$\ast$ myprog}
+
+
+
+global variable\+: myprog program name. 
+
+\mbox{\Hypertarget{server_8c_a0b6d3439424a03ac9ad9ea40abb12021}\label{server_8c_a0b6d3439424a03ac9ad9ea40abb12021}} 
+\index{server.c@{server.c}!quit@{quit}}
+\index{quit@{quit}!server.c@{server.c}}
+\doxysubsubsection{\texorpdfstring{quit}{quit}}
+{\footnotesize\ttfamily volatile sig\+\_\+atomic\+\_\+t quit = 0}
+
+
+
+global variable\+: quit for signal. 
+

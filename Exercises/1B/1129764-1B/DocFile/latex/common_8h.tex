@@ -1,0 +1,163 @@
+\hypertarget{common_8h}{}\doxysection{common.\+h File Reference}
+\label{common_8h}\index{common.h@{common.h}}
+
+
+Defining the required structs and constants for generator and supervisor.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structedge}{edge}}
+\item 
+struct \mbox{\hyperlink{structmyshm}{myshm}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{common_8h_a86393b21e6f74e9870d92149e7fe7f20}{S\+H\+M\+\_\+\+N\+A\+ME}}~\char`\"{}/1129764\+\_\+shared\+\_\+memory\char`\"{}
+\item 
+\#define \mbox{\hyperlink{common_8h_a241d7379931878c3c55d3ca7c58bc4c5}{F\+R\+E\+E\+\_\+\+S\+P\+A\+CE}}~\char`\"{}/1129764\+\_\+free\+\_\+semaphore\char`\"{}
+\item 
+\#define \mbox{\hyperlink{common_8h_a29e04f79a8a19f01d7f12132d8b8b637}{U\+S\+E\+D\+\_\+\+S\+P\+A\+CE}}~\char`\"{}/1129764\+\_\+used\+\_\+semaphore\char`\"{}
+\item 
+\#define \mbox{\hyperlink{common_8h_a2cf3c22d8cacfe663a4eec13d0fb26ef}{M\+U\+T\+EX}}~\char`\"{}/1129764\+\_\+write\+\_\+semaphore\char`\"{}
+\item 
+\#define \mbox{\hyperlink{common_8h_a3d0f03bef2b1dc65604c57996a23822f}{M\+A\+X\+\_\+\+E\+D\+G\+E\+\_\+\+L\+I\+M\+IT}}~(8)
+\item 
+\#define \mbox{\hyperlink{common_8h_a21febb7cf2c2e4d76ebbf9775274aa20}{M\+A\+X\+\_\+\+S\+H\+M\+\_\+\+S\+I\+ZE}}~(128)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structedge}{edge}} \mbox{\hyperlink{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}{edge\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structmyshm}{myshm}} \mbox{\hyperlink{common_8h_a2731848aaecf0ec1792da639dba26dc2}{myshm\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{common_8h_a0f328e0144632a84907a7a1433e799c3}{usage}} (char $\ast$prog, char $\ast$err)
+\begin{DoxyCompactList}\small\item\em This method prints errors in the program and terminates the program. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{common_8h_a64eb43aeff0febca10328d796edb091e}{create\+\_\+shm}} (void)
+\begin{DoxyCompactList}\small\item\em This method opens shared memories. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{common_8h_ae235ffc74623ff70191e11cd96dab8a7}{create\+\_\+semaphores}} (void)
+\begin{DoxyCompactList}\small\item\em This method opens semaphores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defining the required structs and constants for generator and supervisor. 
+
+\begin{DoxyAuthor}{Author}
+Ismail Serbest 1129764 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+13.\+11.\+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{common_8h_a241d7379931878c3c55d3ca7c58bc4c5}\label{common_8h_a241d7379931878c3c55d3ca7c58bc4c5}} 
+\index{common.h@{common.h}!FREE\_SPACE@{FREE\_SPACE}}
+\index{FREE\_SPACE@{FREE\_SPACE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{FREE\_SPACE}{FREE\_SPACE}}
+{\footnotesize\ttfamily \#define F\+R\+E\+E\+\_\+\+S\+P\+A\+CE~\char`\"{}/1129764\+\_\+free\+\_\+semaphore\char`\"{}}
+
+\mbox{\Hypertarget{common_8h_a3d0f03bef2b1dc65604c57996a23822f}\label{common_8h_a3d0f03bef2b1dc65604c57996a23822f}} 
+\index{common.h@{common.h}!MAX\_EDGE\_LIMIT@{MAX\_EDGE\_LIMIT}}
+\index{MAX\_EDGE\_LIMIT@{MAX\_EDGE\_LIMIT}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_EDGE\_LIMIT}{MAX\_EDGE\_LIMIT}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+E\+D\+G\+E\+\_\+\+L\+I\+M\+IT~(8)}
+
+\mbox{\Hypertarget{common_8h_a21febb7cf2c2e4d76ebbf9775274aa20}\label{common_8h_a21febb7cf2c2e4d76ebbf9775274aa20}} 
+\index{common.h@{common.h}!MAX\_SHM\_SIZE@{MAX\_SHM\_SIZE}}
+\index{MAX\_SHM\_SIZE@{MAX\_SHM\_SIZE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_SHM\_SIZE}{MAX\_SHM\_SIZE}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+S\+H\+M\+\_\+\+S\+I\+ZE~(128)}
+
+\mbox{\Hypertarget{common_8h_a2cf3c22d8cacfe663a4eec13d0fb26ef}\label{common_8h_a2cf3c22d8cacfe663a4eec13d0fb26ef}} 
+\index{common.h@{common.h}!MUTEX@{MUTEX}}
+\index{MUTEX@{MUTEX}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{MUTEX}{MUTEX}}
+{\footnotesize\ttfamily \#define M\+U\+T\+EX~\char`\"{}/1129764\+\_\+write\+\_\+semaphore\char`\"{}}
+
+\mbox{\Hypertarget{common_8h_a86393b21e6f74e9870d92149e7fe7f20}\label{common_8h_a86393b21e6f74e9870d92149e7fe7f20}} 
+\index{common.h@{common.h}!SHM\_NAME@{SHM\_NAME}}
+\index{SHM\_NAME@{SHM\_NAME}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{SHM\_NAME}{SHM\_NAME}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+N\+A\+ME~\char`\"{}/1129764\+\_\+shared\+\_\+memory\char`\"{}}
+
+\mbox{\Hypertarget{common_8h_a29e04f79a8a19f01d7f12132d8b8b637}\label{common_8h_a29e04f79a8a19f01d7f12132d8b8b637}} 
+\index{common.h@{common.h}!USED\_SPACE@{USED\_SPACE}}
+\index{USED\_SPACE@{USED\_SPACE}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{USED\_SPACE}{USED\_SPACE}}
+{\footnotesize\ttfamily \#define U\+S\+E\+D\+\_\+\+S\+P\+A\+CE~\char`\"{}/1129764\+\_\+used\+\_\+semaphore\char`\"{}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}\label{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}} 
+\index{common.h@{common.h}!edge\_t@{edge\_t}}
+\index{edge\_t@{edge\_t}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{edge\_t}{edge\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structedge}{edge}} \mbox{\hyperlink{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}{edge\+\_\+t}}}
+
+\mbox{\Hypertarget{common_8h_a2731848aaecf0ec1792da639dba26dc2}\label{common_8h_a2731848aaecf0ec1792da639dba26dc2}} 
+\index{common.h@{common.h}!myshm\_t@{myshm\_t}}
+\index{myshm\_t@{myshm\_t}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{myshm\_t}{myshm\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structmyshm}{myshm}} \mbox{\hyperlink{common_8h_a2731848aaecf0ec1792da639dba26dc2}{myshm\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{common_8h_ae235ffc74623ff70191e11cd96dab8a7}\label{common_8h_ae235ffc74623ff70191e11cd96dab8a7}} 
+\index{common.h@{common.h}!create\_semaphores@{create\_semaphores}}
+\index{create\_semaphores@{create\_semaphores}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{create\_semaphores()}{create\_semaphores()}}
+{\footnotesize\ttfamily static void create\+\_\+semaphores (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This method opens semaphores. 
+
+\mbox{\Hypertarget{common_8h_a64eb43aeff0febca10328d796edb091e}\label{common_8h_a64eb43aeff0febca10328d796edb091e}} 
+\index{common.h@{common.h}!create\_shm@{create\_shm}}
+\index{create\_shm@{create\_shm}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{create\_shm()}{create\_shm()}}
+{\footnotesize\ttfamily static void create\+\_\+shm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This method opens shared memories. 
+
+\mbox{\Hypertarget{common_8h_a0f328e0144632a84907a7a1433e799c3}\label{common_8h_a0f328e0144632a84907a7a1433e799c3}} 
+\index{common.h@{common.h}!usage@{usage}}
+\index{usage@{usage}!common.h@{common.h}}
+\doxysubsubsection{\texorpdfstring{usage()}{usage()}}
+{\footnotesize\ttfamily static void usage (\begin{DoxyParamCaption}\item[{char $\ast$}]{prog,  }\item[{char $\ast$}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This method prints errors in the program and terminates the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em prog} & program name. \\
+\hline
+{\em err} & error message. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,221 @@
+\hypertarget{generator_8c}{}\doxysection{generator.\+c File Reference}
+\label{generator_8c}\index{generator.c@{generator.c}}
+
+
+Defining the required structs and constants for generator and supervisor.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{generator_8c_a3e19f74af9e12bb08a9ebc719b8355aa}{parse\+\_\+arguments}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}{edge\+\_\+t}} $\ast$edges)
+\begin{DoxyCompactList}\small\item\em This method parses the arguments. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{generator_8c_a94a8c3748083bfd91a2b324b7cce264a}{fisher\+\_\+yates\+\_\+shuffle}} (int $\ast$arr, int max\+\_\+vertice)
+\begin{DoxyCompactList}\small\item\em Shuffles the given array. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{generator_8c_a69ce8d404caf0079a8cb7e0857068416}{solution}} (int $\ast$fisher\+\_\+array, \mbox{\hyperlink{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}{edge\+\_\+t}} $\ast$edges, int edge\+\_\+count, int vertice\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Generates a solution to feedback\+\_\+arc\+\_\+set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{generator_8c_a8b3c5464bb79e0debc798311e0167ff9}{cleanup\+\_\+client}} (void)
+\begin{DoxyCompactList}\small\item\em This method turns off the open semaphores and shared memories. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{generator_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em This method generates a solution randomly. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{generator_8c_a64eb43aeff0febca10328d796edb091e}{create\+\_\+shm}} (void)
+\item 
+static void \mbox{\hyperlink{generator_8c_ae235ffc74623ff70191e11cd96dab8a7}{create\+\_\+semaphores}} (void)
+\item 
+static void \mbox{\hyperlink{generator_8c_a9d450501bfa6bdbb458adbcad3cbfd5d}{usage}} (char $\ast$progarg, char $\ast$err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+sem\+\_\+t $\ast$ \mbox{\hyperlink{generator_8c_aecc91fea09ac520c944733157b3b7ea2}{free\+\_\+space}}
+\item 
+sem\+\_\+t $\ast$ \mbox{\hyperlink{generator_8c_ae3cba4bf38617c6fd9114ea8d2982cac}{used\+\_\+space}}
+\item 
+sem\+\_\+t $\ast$ \mbox{\hyperlink{generator_8c_acd861ea1a3dcfc3358db2d51c0d3efb6}{mutex\+\_\+sem}}
+\item 
+int \mbox{\hyperlink{generator_8c_ac254151e0dbe47f8af01f2aa5c1f8a9d}{shmfd}}
+\item 
+\mbox{\hyperlink{common_8h_a2731848aaecf0ec1792da639dba26dc2}{myshm\+\_\+t}} $\ast$ \mbox{\hyperlink{generator_8c_a475094436ccc3bb7ecc83cc9ff9e3f82}{myshm}}
+\item 
+int \mbox{\hyperlink{generator_8c_a31009911c3163f72ef6b45389fd9bde6}{send\+\_\+cnt}}
+\item 
+\mbox{\hyperlink{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}{edge\+\_\+t}} \mbox{\hyperlink{generator_8c_a44eb47e37be7ff08c4e4e0d7045303b4}{solution\+\_\+arr}} \mbox{[}\mbox{\hyperlink{common_8h_a3d0f03bef2b1dc65604c57996a23822f}{M\+A\+X\+\_\+\+E\+D\+G\+E\+\_\+\+L\+I\+M\+IT}}\mbox{]}
+\item 
+char $\ast$ \mbox{\hyperlink{generator_8c_a42ec34a2bd4a60795f746672bc7a00c9}{myprog}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defining the required structs and constants for generator and supervisor. 
+
+\begin{DoxyAuthor}{Author}
+Ismail Serbest 1129764 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+13.\+11.\+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{generator_8c_a8b3c5464bb79e0debc798311e0167ff9}\label{generator_8c_a8b3c5464bb79e0debc798311e0167ff9}} 
+\index{generator.c@{generator.c}!cleanup\_client@{cleanup\_client}}
+\index{cleanup\_client@{cleanup\_client}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{cleanup\_client()}{cleanup\_client()}}
+{\footnotesize\ttfamily void cleanup\+\_\+client (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This method turns off the open semaphores and shared memories. 
+
+If the program has open semaphore, shared memory or buffers, it turns them off. \mbox{\Hypertarget{generator_8c_ae235ffc74623ff70191e11cd96dab8a7}\label{generator_8c_ae235ffc74623ff70191e11cd96dab8a7}} 
+\index{generator.c@{generator.c}!create\_semaphores@{create\_semaphores}}
+\index{create\_semaphores@{create\_semaphores}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{create\_semaphores()}{create\_semaphores()}}
+{\footnotesize\ttfamily static void create\+\_\+semaphores (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{generator_8c_a64eb43aeff0febca10328d796edb091e}\label{generator_8c_a64eb43aeff0febca10328d796edb091e}} 
+\index{generator.c@{generator.c}!create\_shm@{create\_shm}}
+\index{create\_shm@{create\_shm}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{create\_shm()}{create\_shm()}}
+{\footnotesize\ttfamily static void create\+\_\+shm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{generator_8c_a94a8c3748083bfd91a2b324b7cce264a}\label{generator_8c_a94a8c3748083bfd91a2b324b7cce264a}} 
+\index{generator.c@{generator.c}!fisher\_yates\_shuffle@{fisher\_yates\_shuffle}}
+\index{fisher\_yates\_shuffle@{fisher\_yates\_shuffle}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{fisher\_yates\_shuffle()}{fisher\_yates\_shuffle()}}
+{\footnotesize\ttfamily static void fisher\+\_\+yates\+\_\+shuffle (\begin{DoxyParamCaption}\item[{int $\ast$}]{arr,  }\item[{int}]{max\+\_\+vertice }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Shuffles the given array. 
+
+Shuffles the given array according to the fisher yates shuffle algorithm. 
+\begin{DoxyParams}{Parameters}
+{\em arr} & all vertexes. \\
+\hline
+{\em max\+\_\+vertices} & vertex size. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generator_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{generator_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{generator.c@{generator.c}!main@{main}}
+\index{main@{main}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+This method generates a solution randomly. 
+
+This method generates a solution randomly and adds it to the circular buffer. 
+\begin{DoxyParams}{Parameters}
+{\em argc} & argument count. \\
+\hline
+{\em argv} & arguments entered from the terminal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+X\+I\+T\+\_\+\+S\+U\+C\+C\+E\+SS if the program runs without errors. 
+
+E\+X\+I\+T\+\_\+\+F\+A\+I\+L\+U\+RE if there is an error in the program. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generator_8c_a3e19f74af9e12bb08a9ebc719b8355aa}\label{generator_8c_a3e19f74af9e12bb08a9ebc719b8355aa}} 
+\index{generator.c@{generator.c}!parse\_arguments@{parse\_arguments}}
+\index{parse\_arguments@{parse\_arguments}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{parse\_arguments()}{parse\_arguments()}}
+{\footnotesize\ttfamily int parse\+\_\+arguments (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}{edge\+\_\+t}} $\ast$}]{edges }\end{DoxyParamCaption})}
+
+
+
+This method parses the arguments. 
+
+This method saves the given arguments to the edges and returns the value of the largest vertex. 
+\begin{DoxyParams}{Parameters}
+{\em argc} & argument count \\
+\hline
+{\em argv} & arguments entered from the terminal \\
+\hline
+{\em edges} & edges to be filled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vertex size. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{generator_8c_a69ce8d404caf0079a8cb7e0857068416}\label{generator_8c_a69ce8d404caf0079a8cb7e0857068416}} 
+\index{generator.c@{generator.c}!solution@{solution}}
+\index{solution@{solution}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{solution()}{solution()}}
+{\footnotesize\ttfamily static void solution (\begin{DoxyParamCaption}\item[{int $\ast$}]{fisher\+\_\+array,  }\item[{\mbox{\hyperlink{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}{edge\+\_\+t}} $\ast$}]{edges,  }\item[{int}]{edge\+\_\+count,  }\item[{int}]{vertice\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a solution to feedback\+\_\+arc\+\_\+set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fisher\+\_\+array} & all shuffeled vertex. \\
+\hline
+{\em edges} & all edges. \\
+\hline
+{\em edge\+\_\+count} & edge count. \\
+\hline
+{\em vertice\+\_\+count} & vertex size. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{generator_8c_a9d450501bfa6bdbb458adbcad3cbfd5d}\label{generator_8c_a9d450501bfa6bdbb458adbcad3cbfd5d}} 
+\index{generator.c@{generator.c}!usage@{usage}}
+\index{usage@{usage}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{usage()}{usage()}}
+{\footnotesize\ttfamily static void usage (\begin{DoxyParamCaption}\item[{char $\ast$}]{progarg,  }\item[{char $\ast$}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{generator_8c_aecc91fea09ac520c944733157b3b7ea2}\label{generator_8c_aecc91fea09ac520c944733157b3b7ea2}} 
+\index{generator.c@{generator.c}!free\_space@{free\_space}}
+\index{free\_space@{free\_space}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{free\_space}{free\_space}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ free\+\_\+space}
+
+\mbox{\Hypertarget{generator_8c_acd861ea1a3dcfc3358db2d51c0d3efb6}\label{generator_8c_acd861ea1a3dcfc3358db2d51c0d3efb6}} 
+\index{generator.c@{generator.c}!mutex\_sem@{mutex\_sem}}
+\index{mutex\_sem@{mutex\_sem}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{mutex\_sem}{mutex\_sem}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ mutex\+\_\+sem}
+
+\mbox{\Hypertarget{generator_8c_a42ec34a2bd4a60795f746672bc7a00c9}\label{generator_8c_a42ec34a2bd4a60795f746672bc7a00c9}} 
+\index{generator.c@{generator.c}!myprog@{myprog}}
+\index{myprog@{myprog}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{myprog}{myprog}}
+{\footnotesize\ttfamily char$\ast$ myprog}
+
+\mbox{\Hypertarget{generator_8c_a475094436ccc3bb7ecc83cc9ff9e3f82}\label{generator_8c_a475094436ccc3bb7ecc83cc9ff9e3f82}} 
+\index{generator.c@{generator.c}!myshm@{myshm}}
+\index{myshm@{myshm}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{myshm}{myshm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_a2731848aaecf0ec1792da639dba26dc2}{myshm\+\_\+t}}$\ast$ \mbox{\hyperlink{structmyshm}{myshm}}}
+
+\mbox{\Hypertarget{generator_8c_a31009911c3163f72ef6b45389fd9bde6}\label{generator_8c_a31009911c3163f72ef6b45389fd9bde6}} 
+\index{generator.c@{generator.c}!send\_cnt@{send\_cnt}}
+\index{send\_cnt@{send\_cnt}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{send\_cnt}{send\_cnt}}
+{\footnotesize\ttfamily int send\+\_\+cnt}
+
+\mbox{\Hypertarget{generator_8c_ac254151e0dbe47f8af01f2aa5c1f8a9d}\label{generator_8c_ac254151e0dbe47f8af01f2aa5c1f8a9d}} 
+\index{generator.c@{generator.c}!shmfd@{shmfd}}
+\index{shmfd@{shmfd}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{shmfd}{shmfd}}
+{\footnotesize\ttfamily int shmfd}
+
+\mbox{\Hypertarget{generator_8c_a44eb47e37be7ff08c4e4e0d7045303b4}\label{generator_8c_a44eb47e37be7ff08c4e4e0d7045303b4}} 
+\index{generator.c@{generator.c}!solution\_arr@{solution\_arr}}
+\index{solution\_arr@{solution\_arr}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{solution\_arr}{solution\_arr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_ad85e157bedf2d9e91492c7ee1982e5ad}{edge\+\_\+t}} solution\+\_\+arr\mbox{[}\mbox{\hyperlink{common_8h_a3d0f03bef2b1dc65604c57996a23822f}{M\+A\+X\+\_\+\+E\+D\+G\+E\+\_\+\+L\+I\+M\+IT}}\mbox{]}}
+
+\mbox{\Hypertarget{generator_8c_ae3cba4bf38617c6fd9114ea8d2982cac}\label{generator_8c_ae3cba4bf38617c6fd9114ea8d2982cac}} 
+\index{generator.c@{generator.c}!used\_space@{used\_space}}
+\index{used\_space@{used\_space}!generator.c@{generator.c}}
+\doxysubsubsection{\texorpdfstring{used\_space}{used\_space}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ used\+\_\+space}
+

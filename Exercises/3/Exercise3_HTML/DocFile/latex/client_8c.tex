@@ -1,0 +1,72 @@
+\hypertarget{client_8c}{}\doxysection{client.\+c File Reference}
+\label{client_8c}\index{client.c@{client.c}}
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{client_8c_a2d122e5bc9a6e3d768e0494ddd3e4ce5}{error\+\_\+exit}} (char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em exits incase of an error. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{client_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em main method of programm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{client_8c_a42ec34a2bd4a60795f746672bc7a00c9}{myprog}}
+\begin{DoxyCompactList}\small\item\em global variable\+: myprog. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{client_8c_a2d122e5bc9a6e3d768e0494ddd3e4ce5}\label{client_8c_a2d122e5bc9a6e3d768e0494ddd3e4ce5}} 
+\index{client.c@{client.c}!error\_exit@{error\_exit}}
+\index{error\_exit@{error\_exit}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{error\_exit()}{error\_exit()}}
+{\footnotesize\ttfamily static void error\+\_\+exit (\begin{DoxyParamCaption}\item[{char $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+exits incase of an error. 
+
+exits and prints error message if any error accured. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & char pointer that contains error message. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{client_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{client_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{client.c@{client.c}!main@{main}}
+\index{main@{main}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+main method of programm 
+
+The client takes an U\+RL as input, connects to the corresponding server and requests the file specified in the U\+RL. The transmitted content of that file is written to stdout or to a file. 
+\begin{DoxyParams}{Parameters}
+{\em argc} & argc count of arguments. \\
+\hline
+{\em argv} & array contains argument values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns error if programm fails, otherwise returns 0. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{client_8c_a42ec34a2bd4a60795f746672bc7a00c9}\label{client_8c_a42ec34a2bd4a60795f746672bc7a00c9}} 
+\index{client.c@{client.c}!myprog@{myprog}}
+\index{myprog@{myprog}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{myprog}{myprog}}
+{\footnotesize\ttfamily char$\ast$ myprog}
+
+
+
+global variable\+: myprog. 
+

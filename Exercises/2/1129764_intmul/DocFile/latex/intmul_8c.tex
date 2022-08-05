@@ -1,0 +1,212 @@
+\hypertarget{intmul_8c}{}\doxysection{intmul.\+c File Reference}
+\label{intmul_8c}\index{intmul.c@{intmul.c}}
+
+
+This Programm Implements an algorithm for the efficient multiplication of large integers.  
+
+
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{intmul_8c_a2d122e5bc9a6e3d768e0494ddd3e4ce5}{error\+\_\+exit}} (char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em exits incase of an error. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{intmul_8c_a00acf4388e57bcdc1b2b5190c7d95501}{is\+\_\+number\+\_\+valid}} (char $\ast$number)
+\begin{DoxyCompactList}\small\item\em checks if number is valid. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{intmul_8c_ab3dc113ebb25253f058e3a3169c11983}{child}} (int pipe\+\_\+in\mbox{[}2\mbox{]}, int pipe\+\_\+out\mbox{[}2\mbox{]}, char $\ast$A, char $\ast$B, char $\ast$AB)
+\begin{DoxyCompactList}\small\item\em creates child process \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{intmul_8c_aeaa8e827d3107a2ea99c678f5a6c72b0}{read\+\_\+from\+\_\+child}} (int pipefd, char $\ast$number)
+\begin{DoxyCompactList}\small\item\em reads from child. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{intmul_8c_a9c9bd47e0a642091739f74d642b69276}{write\+\_\+to\+\_\+pipe}} (int pipefd, char $\ast$A, char $\ast$B)
+\begin{DoxyCompactList}\small\item\em writes to child. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{intmul_8c_a9ef69e92ffd102227f35b2d77cce1dca}{add\+\_\+end\+\_\+zero}} (char $\ast$number, int len)
+\begin{DoxyCompactList}\small\item\em handles digits. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{intmul_8c_a4384ac49756cc30dc2e6ef4a29c2a4c6}{add\+\_\+hex}} (char $\ast$A\+H\+BH, char $\ast$A\+H\+BL, char $\ast$A\+L\+BH, char $\ast$A\+L\+BL)
+\begin{DoxyCompactList}\small\item\em sums numbers \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{intmul_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em main method of programm \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \mbox{\hyperlink{intmul_8c_a42ec34a2bd4a60795f746672bc7a00c9}{myprog}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This Programm Implements an algorithm for the efficient multiplication of large integers. 
+
+\begin{DoxyAuthor}{Author}
+Ismail Serbest 1129764 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12.\+12.\+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{intmul_8c_a9ef69e92ffd102227f35b2d77cce1dca}\label{intmul_8c_a9ef69e92ffd102227f35b2d77cce1dca}} 
+\index{intmul.c@{intmul.c}!add\_end\_zero@{add\_end\_zero}}
+\index{add\_end\_zero@{add\_end\_zero}!intmul.c@{intmul.c}}
+\doxysubsubsection{\texorpdfstring{add\_end\_zero()}{add\_end\_zero()}}
+{\footnotesize\ttfamily static void add\+\_\+end\+\_\+zero (\begin{DoxyParamCaption}\item[{char $\ast$}]{number,  }\item[{int}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+handles digits. 
+
+adds necessary number of zero end of digits. 
+\begin{DoxyParams}{Parameters}
+{\em number} & contains digits that need to be modified. \\
+\hline
+{\em len} & contains how many zero must be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{intmul_8c_a4384ac49756cc30dc2e6ef4a29c2a4c6}\label{intmul_8c_a4384ac49756cc30dc2e6ef4a29c2a4c6}} 
+\index{intmul.c@{intmul.c}!add\_hex@{add\_hex}}
+\index{add\_hex@{add\_hex}!intmul.c@{intmul.c}}
+\doxysubsubsection{\texorpdfstring{add\_hex()}{add\_hex()}}
+{\footnotesize\ttfamily static void add\+\_\+hex (\begin{DoxyParamCaption}\item[{char $\ast$}]{A\+H\+BH,  }\item[{char $\ast$}]{A\+H\+BL,  }\item[{char $\ast$}]{A\+L\+BH,  }\item[{char $\ast$}]{A\+L\+BL }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+sums numbers 
+
+adds four hexadecimal numbers and reverses the solution for correct result. 
+\begin{DoxyParams}{Parameters}
+{\em A\+H\+BH} & contains number to be added. \\
+\hline
+{\em A\+H\+BL} & contains number to be added. \\
+\hline
+{\em A\+L\+BH} & contains number to be added. \\
+\hline
+{\em A\+L\+BL} & contains number to be added. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{intmul_8c_ab3dc113ebb25253f058e3a3169c11983}\label{intmul_8c_ab3dc113ebb25253f058e3a3169c11983}} 
+\index{intmul.c@{intmul.c}!child@{child}}
+\index{child@{child}!intmul.c@{intmul.c}}
+\doxysubsubsection{\texorpdfstring{child()}{child()}}
+{\footnotesize\ttfamily static void child (\begin{DoxyParamCaption}\item[{int}]{pipe\+\_\+in\mbox{[}2\mbox{]},  }\item[{int}]{pipe\+\_\+out\mbox{[}2\mbox{]},  }\item[{char $\ast$}]{A,  }\item[{char $\ast$}]{B,  }\item[{char $\ast$}]{AB }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+creates child process 
+
+creates child process and creates pipes to communicate with child 
+\begin{DoxyParams}{Parameters}
+{\em pipe\+\_\+in} & write end of pipe. \\
+\hline
+{\em pipe\+\_\+out} & read end of pipe. \\
+\hline
+{\em A} & first part of divided number. \\
+\hline
+{\em B} & second part of divided number. \\
+\hline
+{\em AB} & multipication of A and B. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{intmul_8c_a2d122e5bc9a6e3d768e0494ddd3e4ce5}\label{intmul_8c_a2d122e5bc9a6e3d768e0494ddd3e4ce5}} 
+\index{intmul.c@{intmul.c}!error\_exit@{error\_exit}}
+\index{error\_exit@{error\_exit}!intmul.c@{intmul.c}}
+\doxysubsubsection{\texorpdfstring{error\_exit()}{error\_exit()}}
+{\footnotesize\ttfamily static void error\+\_\+exit (\begin{DoxyParamCaption}\item[{char $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+exits incase of an error. 
+
+exits and prints error message if any error accured. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & char pointer that contains error message. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{intmul_8c_a00acf4388e57bcdc1b2b5190c7d95501}\label{intmul_8c_a00acf4388e57bcdc1b2b5190c7d95501}} 
+\index{intmul.c@{intmul.c}!is\_number\_valid@{is\_number\_valid}}
+\index{is\_number\_valid@{is\_number\_valid}!intmul.c@{intmul.c}}
+\doxysubsubsection{\texorpdfstring{is\_number\_valid()}{is\_number\_valid()}}
+{\footnotesize\ttfamily static int is\+\_\+number\+\_\+valid (\begin{DoxyParamCaption}\item[{char $\ast$}]{number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+checks if number is valid. 
+
+checks if given hexadecimal number is valid. 
+\begin{DoxyParams}{Parameters}
+{\em number} & char pointer that contains hexadecimal number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+in case of error returns -\/1, otherwise returns 1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{intmul_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{intmul_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{intmul.c@{intmul.c}!main@{main}}
+\index{main@{main}!intmul.c@{intmul.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+main method of programm 
+
+reads input from stdin and split them to two parts and send them to child for further processing 
+\begin{DoxyParams}{Parameters}
+{\em argc} & count of arguments. \\
+\hline
+{\em argv} & array contains argument values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns error if programm fails, otherwise returns 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{intmul_8c_aeaa8e827d3107a2ea99c678f5a6c72b0}\label{intmul_8c_aeaa8e827d3107a2ea99c678f5a6c72b0}} 
+\index{intmul.c@{intmul.c}!read\_from\_child@{read\_from\_child}}
+\index{read\_from\_child@{read\_from\_child}!intmul.c@{intmul.c}}
+\doxysubsubsection{\texorpdfstring{read\_from\_child()}{read\_from\_child()}}
+{\footnotesize\ttfamily static void read\+\_\+from\+\_\+child (\begin{DoxyParamCaption}\item[{int}]{pipefd,  }\item[{char $\ast$}]{number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+reads from child. 
+
+reads from read end of pipe. 
+\begin{DoxyParams}{Parameters}
+{\em pipefd} & file directory of used pipe. \\
+\hline
+{\em number} & char pointer to contain read number. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{intmul_8c_a9c9bd47e0a642091739f74d642b69276}\label{intmul_8c_a9c9bd47e0a642091739f74d642b69276}} 
+\index{intmul.c@{intmul.c}!write\_to\_pipe@{write\_to\_pipe}}
+\index{write\_to\_pipe@{write\_to\_pipe}!intmul.c@{intmul.c}}
+\doxysubsubsection{\texorpdfstring{write\_to\_pipe()}{write\_to\_pipe()}}
+{\footnotesize\ttfamily static void write\+\_\+to\+\_\+pipe (\begin{DoxyParamCaption}\item[{int}]{pipefd,  }\item[{char $\ast$}]{A,  }\item[{char $\ast$}]{B }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+writes to child. 
+
+writes to write end of pipe. 
+\begin{DoxyParams}{Parameters}
+{\em pipefd} & file directory of used pipe. \\
+\hline
+{\em A} & char pointer to contain written number. \\
+\hline
+{\em B} & char pointer to contain written number. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{intmul_8c_a42ec34a2bd4a60795f746672bc7a00c9}\label{intmul_8c_a42ec34a2bd4a60795f746672bc7a00c9}} 
+\index{intmul.c@{intmul.c}!myprog@{myprog}}
+\index{myprog@{myprog}!intmul.c@{intmul.c}}
+\doxysubsubsection{\texorpdfstring{myprog}{myprog}}
+{\footnotesize\ttfamily char$\ast$ myprog\hspace{0.3cm}{\ttfamily [static]}}
+
+name of the executable 

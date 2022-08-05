@@ -1,0 +1,142 @@
+\hypertarget{ispalindrom_8c}{}\doxysection{ispalindrom.\+c File Reference}
+\label{ispalindrom_8c}\index{ispalindrom.c@{ispalindrom.c}}
+
+
+This program checks if the given text is a palindrom.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{ispalindrom_8c_ad96d407a911fbb914fa8e4cfbf2faf0f}{usage}} (void)
+\item 
+static void \mbox{\hyperlink{ispalindrom_8c_aa33e32a742e7dde79488eb98f8effe50}{remove\+Space}} (char $\ast$string)
+\item 
+static void \mbox{\hyperlink{ispalindrom_8c_a8643561183bf5283992b01f349aaa1d8}{string\+To\+Upper\+Case}} (char $\ast$string)
+\item 
+static int \mbox{\hyperlink{ispalindrom_8c_ae81df7ae4dd058861013389448a8f81c}{is\+Palindrom}} (char $\ast$string)
+\item 
+static void \mbox{\hyperlink{ispalindrom_8c_a6fe42641ac7427c1b91b51877bc2519d}{input\+Reader}} (F\+I\+LE $\ast$input, int s\+\_\+flag, int i\+\_\+flag, F\+I\+LE $\ast$output)
+\item 
+int \mbox{\hyperlink{ispalindrom_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{ispalindrom_8c_a42ec34a2bd4a60795f746672bc7a00c9}{myprog}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This program checks if the given text is a palindrom. 
+
+\begin{DoxyAuthor}{Author}
+Ismail Serbest 1129764 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11.\+11.\+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ispalindrom_8c_a6fe42641ac7427c1b91b51877bc2519d}\label{ispalindrom_8c_a6fe42641ac7427c1b91b51877bc2519d}} 
+\index{ispalindrom.c@{ispalindrom.c}!inputReader@{inputReader}}
+\index{inputReader@{inputReader}!ispalindrom.c@{ispalindrom.c}}
+\doxysubsubsection{\texorpdfstring{inputReader()}{inputReader()}}
+{\footnotesize\ttfamily static void input\+Reader (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{input,  }\item[{int}]{s\+\_\+flag,  }\item[{int}]{i\+\_\+flag,  }\item[{F\+I\+LE $\ast$}]{output }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads the input and tells whether the value read is a palindrome or not 
+\begin{DoxyParams}{Parameters}
+{\em input} & readed input \\
+\hline
+{\em s\+\_\+flag} & is \textquotesingle{}s\textquotesingle{} marked. \\
+\hline
+{\em i\+\_\+flag} & is \textquotesingle{}i\textquotesingle{} marked. \\
+\hline
+{\em output} & save result. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ispalindrom_8c_ae81df7ae4dd058861013389448a8f81c}\label{ispalindrom_8c_ae81df7ae4dd058861013389448a8f81c}} 
+\index{ispalindrom.c@{ispalindrom.c}!isPalindrom@{isPalindrom}}
+\index{isPalindrom@{isPalindrom}!ispalindrom.c@{ispalindrom.c}}
+\doxysubsubsection{\texorpdfstring{isPalindrom()}{isPalindrom()}}
+{\footnotesize\ttfamily static int is\+Palindrom (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This function checks if the given text is a palindrom.
+
+The string must be terminated by a \textquotesingle{}\textbackslash{}0\textquotesingle{}. 
+\begin{DoxyParams}{Parameters}
+{\em string} & to check if it is a palindrom. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 -\/ text is a palindrom. 
+
+0 -\/ text is not a palindrom. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ispalindrom_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{ispalindrom_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{ispalindrom.c@{ispalindrom.c}!main@{main}}
+\index{main@{main}!ispalindrom.c@{ispalindrom.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Reads options and arguments and directs the program according to the result. 
+\begin{DoxyParams}{Parameters}
+{\em argc} & the number of arguments entered from the command line. \\
+\hline
+{\em argv} & arguments entered from the command line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+X\+I\+T\+\_\+\+S\+U\+C\+C\+E\+SS if the program runs without errors. 
+
+E\+X\+I\+T\+\_\+\+F\+A\+I\+L\+U\+RE if there is an error in the program. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ispalindrom_8c_aa33e32a742e7dde79488eb98f8effe50}\label{ispalindrom_8c_aa33e32a742e7dde79488eb98f8effe50}} 
+\index{ispalindrom.c@{ispalindrom.c}!removeSpace@{removeSpace}}
+\index{removeSpace@{removeSpace}!ispalindrom.c@{ispalindrom.c}}
+\doxysubsubsection{\texorpdfstring{removeSpace()}{removeSpace()}}
+{\footnotesize\ttfamily static void remove\+Space (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This function removes all occurences of the space character from string.
+
+The string must be terminated by a \textquotesingle{}\textbackslash{}0\textquotesingle{} 
+\begin{DoxyParams}{Parameters}
+{\em string} & to remove all space characters.\\
+\hline
+\end{DoxyParams}
+side effects\+: The string source is overwritten. \mbox{\Hypertarget{ispalindrom_8c_a8643561183bf5283992b01f349aaa1d8}\label{ispalindrom_8c_a8643561183bf5283992b01f349aaa1d8}} 
+\index{ispalindrom.c@{ispalindrom.c}!stringToUpperCase@{stringToUpperCase}}
+\index{stringToUpperCase@{stringToUpperCase}!ispalindrom.c@{ispalindrom.c}}
+\doxysubsubsection{\texorpdfstring{stringToUpperCase()}{stringToUpperCase()}}
+{\footnotesize\ttfamily static void string\+To\+Upper\+Case (\begin{DoxyParamCaption}\item[{char $\ast$}]{string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This function chances all lowercase letter to uppercase letter in the string.
+
+The string must be terminated by a \textquotesingle{}\textbackslash{}0\textquotesingle{} 
+\begin{DoxyParams}{Parameters}
+{\em string} & to chances all lowercase letter to uppercase letter. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ispalindrom_8c_ad96d407a911fbb914fa8e4cfbf2faf0f}\label{ispalindrom_8c_ad96d407a911fbb914fa8e4cfbf2faf0f}} 
+\index{ispalindrom.c@{ispalindrom.c}!usage@{usage}}
+\index{usage@{usage}!ispalindrom.c@{ispalindrom.c}}
+\doxysubsubsection{\texorpdfstring{usage()}{usage()}}
+{\footnotesize\ttfamily static void usage (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This function writes helpful usage information about the program to stderr.
+
+global variable\+: myprog. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ispalindrom_8c_a42ec34a2bd4a60795f746672bc7a00c9}\label{ispalindrom_8c_a42ec34a2bd4a60795f746672bc7a00c9}} 
+\index{ispalindrom.c@{ispalindrom.c}!myprog@{myprog}}
+\index{myprog@{myprog}!ispalindrom.c@{ispalindrom.c}}
+\doxysubsubsection{\texorpdfstring{myprog}{myprog}}
+{\footnotesize\ttfamily char$\ast$ myprog}
+

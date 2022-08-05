@@ -1,0 +1,159 @@
+\hypertarget{supervisor_8c}{}\doxysection{supervisor.\+c File Reference}
+\label{supervisor_8c}\index{supervisor.c@{supervisor.c}}
+
+
+Defining the required structs and constants for generator and supervisor.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{supervisor_8c_adb1a37faa77219e1add3c026597c3dec}{handle\+\_\+signal}} (int signal)
+\begin{DoxyCompactList}\small\item\em handle signal \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{supervisor_8c_a18ef00a7c30f61909e69ff73e591d232}{cleanup\+\_\+server}} (void)
+\begin{DoxyCompactList}\small\item\em This method turns off the open semaphores and shared memories. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{supervisor_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em This method stores the shortest solution. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{supervisor_8c_a64eb43aeff0febca10328d796edb091e}{create\+\_\+shm}} (void)
+\item 
+static void \mbox{\hyperlink{supervisor_8c_ae235ffc74623ff70191e11cd96dab8a7}{create\+\_\+semaphores}} (void)
+\item 
+static void \mbox{\hyperlink{supervisor_8c_a9d450501bfa6bdbb458adbcad3cbfd5d}{usage}} (char $\ast$progarg, char $\ast$err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{supervisor_8c_a42ec34a2bd4a60795f746672bc7a00c9}{myprog}}
+\item 
+volatile sig\+\_\+atomic\+\_\+t \mbox{\hyperlink{supervisor_8c_a0b6d3439424a03ac9ad9ea40abb12021}{quit}} = 0
+\item 
+sem\+\_\+t $\ast$ \mbox{\hyperlink{supervisor_8c_aecc91fea09ac520c944733157b3b7ea2}{free\+\_\+space}}
+\item 
+sem\+\_\+t $\ast$ \mbox{\hyperlink{supervisor_8c_ae3cba4bf38617c6fd9114ea8d2982cac}{used\+\_\+space}}
+\item 
+sem\+\_\+t $\ast$ \mbox{\hyperlink{supervisor_8c_acd861ea1a3dcfc3358db2d51c0d3efb6}{mutex\+\_\+sem}}
+\item 
+int \mbox{\hyperlink{supervisor_8c_ac254151e0dbe47f8af01f2aa5c1f8a9d}{shmfd}} = -\/1
+\item 
+\mbox{\hyperlink{common_8h_a2731848aaecf0ec1792da639dba26dc2}{myshm\+\_\+t}} $\ast$ \mbox{\hyperlink{supervisor_8c_a475094436ccc3bb7ecc83cc9ff9e3f82}{myshm}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defining the required structs and constants for generator and supervisor. 
+
+\begin{DoxyAuthor}{Author}
+Ismail Serbest 1129764 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+13.\+11.\+2020 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{supervisor_8c_a18ef00a7c30f61909e69ff73e591d232}\label{supervisor_8c_a18ef00a7c30f61909e69ff73e591d232}} 
+\index{supervisor.c@{supervisor.c}!cleanup\_server@{cleanup\_server}}
+\index{cleanup\_server@{cleanup\_server}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{cleanup\_server()}{cleanup\_server()}}
+{\footnotesize\ttfamily void cleanup\+\_\+server (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This method turns off the open semaphores and shared memories. 
+
+If the program has open semaphore, shared memory or buffers, it turns them off. \mbox{\Hypertarget{supervisor_8c_ae235ffc74623ff70191e11cd96dab8a7}\label{supervisor_8c_ae235ffc74623ff70191e11cd96dab8a7}} 
+\index{supervisor.c@{supervisor.c}!create\_semaphores@{create\_semaphores}}
+\index{create\_semaphores@{create\_semaphores}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{create\_semaphores()}{create\_semaphores()}}
+{\footnotesize\ttfamily static void create\+\_\+semaphores (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{supervisor_8c_a64eb43aeff0febca10328d796edb091e}\label{supervisor_8c_a64eb43aeff0febca10328d796edb091e}} 
+\index{supervisor.c@{supervisor.c}!create\_shm@{create\_shm}}
+\index{create\_shm@{create\_shm}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{create\_shm()}{create\_shm()}}
+{\footnotesize\ttfamily static void create\+\_\+shm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{supervisor_8c_adb1a37faa77219e1add3c026597c3dec}\label{supervisor_8c_adb1a37faa77219e1add3c026597c3dec}} 
+\index{supervisor.c@{supervisor.c}!handle\_signal@{handle\_signal}}
+\index{handle\_signal@{handle\_signal}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{handle\_signal()}{handle\_signal()}}
+{\footnotesize\ttfamily void handle\+\_\+signal (\begin{DoxyParamCaption}\item[{int}]{signal }\end{DoxyParamCaption})}
+
+
+
+handle signal 
+
+makes variable quit 1 and myshm-\/$>$ state is 0. 
+\begin{DoxyParams}{Parameters}
+{\em signal} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{supervisor_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{supervisor_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{supervisor.c@{supervisor.c}!main@{main}}
+\index{main@{main}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+This method stores the shortest solution. 
+
+This method prints the shortest of the sent solutions on the screen. 
+\begin{DoxyParams}{Parameters}
+{\em argc} & argument count \\
+\hline
+{\em argv} & arguments entered from the terminal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{supervisor_8c_a9d450501bfa6bdbb458adbcad3cbfd5d}\label{supervisor_8c_a9d450501bfa6bdbb458adbcad3cbfd5d}} 
+\index{supervisor.c@{supervisor.c}!usage@{usage}}
+\index{usage@{usage}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{usage()}{usage()}}
+{\footnotesize\ttfamily static void usage (\begin{DoxyParamCaption}\item[{char $\ast$}]{progarg,  }\item[{char $\ast$}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{supervisor_8c_aecc91fea09ac520c944733157b3b7ea2}\label{supervisor_8c_aecc91fea09ac520c944733157b3b7ea2}} 
+\index{supervisor.c@{supervisor.c}!free\_space@{free\_space}}
+\index{free\_space@{free\_space}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{free\_space}{free\_space}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ free\+\_\+space}
+
+\mbox{\Hypertarget{supervisor_8c_acd861ea1a3dcfc3358db2d51c0d3efb6}\label{supervisor_8c_acd861ea1a3dcfc3358db2d51c0d3efb6}} 
+\index{supervisor.c@{supervisor.c}!mutex\_sem@{mutex\_sem}}
+\index{mutex\_sem@{mutex\_sem}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{mutex\_sem}{mutex\_sem}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ mutex\+\_\+sem}
+
+\mbox{\Hypertarget{supervisor_8c_a42ec34a2bd4a60795f746672bc7a00c9}\label{supervisor_8c_a42ec34a2bd4a60795f746672bc7a00c9}} 
+\index{supervisor.c@{supervisor.c}!myprog@{myprog}}
+\index{myprog@{myprog}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{myprog}{myprog}}
+{\footnotesize\ttfamily char$\ast$ myprog}
+
+\mbox{\Hypertarget{supervisor_8c_a475094436ccc3bb7ecc83cc9ff9e3f82}\label{supervisor_8c_a475094436ccc3bb7ecc83cc9ff9e3f82}} 
+\index{supervisor.c@{supervisor.c}!myshm@{myshm}}
+\index{myshm@{myshm}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{myshm}{myshm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{common_8h_a2731848aaecf0ec1792da639dba26dc2}{myshm\+\_\+t}}$\ast$ \mbox{\hyperlink{structmyshm}{myshm}}}
+
+\mbox{\Hypertarget{supervisor_8c_a0b6d3439424a03ac9ad9ea40abb12021}\label{supervisor_8c_a0b6d3439424a03ac9ad9ea40abb12021}} 
+\index{supervisor.c@{supervisor.c}!quit@{quit}}
+\index{quit@{quit}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{quit}{quit}}
+{\footnotesize\ttfamily volatile sig\+\_\+atomic\+\_\+t quit = 0}
+
+\mbox{\Hypertarget{supervisor_8c_ac254151e0dbe47f8af01f2aa5c1f8a9d}\label{supervisor_8c_ac254151e0dbe47f8af01f2aa5c1f8a9d}} 
+\index{supervisor.c@{supervisor.c}!shmfd@{shmfd}}
+\index{shmfd@{shmfd}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{shmfd}{shmfd}}
+{\footnotesize\ttfamily int shmfd = -\/1}
+
+\mbox{\Hypertarget{supervisor_8c_ae3cba4bf38617c6fd9114ea8d2982cac}\label{supervisor_8c_ae3cba4bf38617c6fd9114ea8d2982cac}} 
+\index{supervisor.c@{supervisor.c}!used\_space@{used\_space}}
+\index{used\_space@{used\_space}!supervisor.c@{supervisor.c}}
+\doxysubsubsection{\texorpdfstring{used\_space}{used\_space}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ used\+\_\+space}
+
